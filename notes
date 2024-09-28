@@ -2,12 +2,32 @@ Subjects:
 ---------------
 pg
 ---------------
-items
-products
-categories
-shops
-measures
-currencies
+items:
+  prod_id: int, req
+  amount: DECIMAL(10, 2)
+  price: DECIMAL(10, 2)
+  summ: DECIMAL(10, 2), req
+  shop_id: int
+  measure_id: int
+  currency_id: int
+products:
+  title: string, req
+  description: text
+  cat_id: number
+categories:
+  title: string, req, uniq
+  description: text
+shops:
+  title: string, req, uniq
+  description: text
+  url: string, uniq
+  image: string
+measures:
+  title: string, req, uniq
+  description: text
+currencies:
+  title: string, req, uniq
+  description: text
 ---------------
 mongo
 ---------------
