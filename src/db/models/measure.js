@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      measure.hasMany(models.item, {
+        foreignKey: 'measure_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      })
     }
   }
   measure.init({

@@ -11,6 +11,26 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      item.belongsTo(models.product, {
+        foreignKey: 'prod_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
+      item.belongsTo(models.shop, {
+        foreignKey: 'shop_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
+      item.belongsTo(models.measure, {
+        foreignKey: 'measure_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
+      item.belongsTo(models.currency, {
+        foreignKey: 'currency_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
     }
   }
   item.init({

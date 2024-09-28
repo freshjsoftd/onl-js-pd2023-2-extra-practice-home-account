@@ -1,0 +1,8 @@
+[
+  "20240928093209-create-category.js",
+  "20240928095947-create-measure.js",
+  "20240928100010-create-currency.js",
+  "20240928100140-create-product.js",
+  "20240928100235-create-shop.js",
+  "20240928100609-create-item.js"
+]

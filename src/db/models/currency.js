@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      currency.hasMany(models.item, {
+        foreignKey: 'currency_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      })
     }
   }
   currency.init({
