@@ -18,12 +18,12 @@ module.exports.users = [
     fullName: 'Jhon Doe',
     email: 'jhon.doe@gmail.com',
     password: 'qwerty',
-    roleId: '66f6ada84a5b303c83d8105d',
+    // roleId: '66f6ada84a5b303c83d8105d',
   },
   {
     fullName: 'Jane Smith',
     email: 'jane.smith@gmail.com',
     password: 'asdfgh',
-    roleId: '66f6ada84a5b303c83d8105e',
+    // roleId: '66f6ada84a5b303c83d8105e',
   },
 ]
