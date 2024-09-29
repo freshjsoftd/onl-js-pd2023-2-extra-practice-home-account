@@ -324,7 +324,7 @@ module.exports = {
 			updatedAt: new Date(),
     },
 		{
-      product_id: 15,
+      prod_id: 15,
 			amount: 1.00,
 			price: 18000.00,
 			summ: 18000.00,
@@ -335,7 +335,7 @@ module.exports = {
 			updatedAt: new Date(),
     },
 		{
-      product_id: 16,
+      prod_id: 16,
 			amount: 1.00,
 			price: 65000.00,
 			summ: 65000.00,
