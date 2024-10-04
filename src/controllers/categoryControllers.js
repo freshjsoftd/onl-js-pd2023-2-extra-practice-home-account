@@ -44,7 +44,34 @@ class CategoryControllers {
       next(error)
     }
   };
-  async updateCategory(req, res, next){};
+  async updateCategory(req, res, next){
+    const t = await sequelize.transaction();
+		try {
+			const { body } = req;
+			const updatedCategory = await category.update(body, {
+				where: {
+					id: body.id,
+				},
+				transaction: t,
+				raw: true,
+				returning: ['id', 'title'],
+			});
+			console.log(updatedCategory[0]);
+			if (updatedCategory[0] > 0) {
+				console.log(
+					`Result is: ${JSON.stringify(updatedCategory[1], null, 2)}`
+				);
+				res.status(200).json(updatedCategory[1]);
+			} else {
+				console.log('This category hasn`t been found');
+				next(createError(400, 'This category hasn`t been found'));
+			}
+			await t.commit();
+		} catch (error) {
+			await t.rollback();
+			next(error);
+		}
+  };
   async deleteCategory(req, res, next){};
 }
 
