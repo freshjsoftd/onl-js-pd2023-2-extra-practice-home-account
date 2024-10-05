@@ -72,7 +72,27 @@ class CategoryControllers {
 			next(error);
 		}
   };
-  async deleteCategory(req, res, next){};
+  async deleteCategory(req, res, next){
+    const t = await sequelize.transaction();
+    try {
+      const id = req.params.id;
+      const delCategory = await category.destroy({
+        where: {
+					id: id,
+				},
+				transaction: t,
+      })
+      if (delCategory) {
+				res.send(res.statusCode);
+			} else {
+				next(createError(404, 'This category has not been found'));
+			}
+			await t.commit();
+    } catch (error) {
+      await t.rollback();
+			next(error);
+    }
+  };
 }
 
 module.exports = new CategoryControllers();
