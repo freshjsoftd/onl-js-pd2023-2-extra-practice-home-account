@@ -10,6 +10,7 @@ categoryRouter.route('/')
     .put(categoryCtrl.updateCategory)
 
 categoryRouter.route('/:id')
+    .get(categoryCtrl.getCategoryById)
     .delete(categoryCtrl.deleteCategory)
 
 module.exports = categoryRouter;

@@ -22,6 +22,25 @@ class CategoryControllers {
     }
   }
 
+  async getCategoryById(req, res, next) {
+    try {
+      const {id} = req.params;
+      const catById = await category.findByPk(id, {
+        attributes: ['title'],
+				raw: true, 
+      })
+      if(catById) {
+        console.log(`Result is: ${JSON.stringify(catById, null, 2)}`)
+        res.status(200).json(catById)
+      }else{
+        console.log('This category has not been found');
+        next(createError(404, 'This category has not been found'));
+      }
+    } catch (error) {
+      next(error)
+    }
+  }
+
   async createCategory(req, res, next){
     const t = await sequelize.transaction()
     try {
