@@ -6,3 +6,24 @@ Content-Type: application/json
   "email": "vas.pup@gmail.com",
   "password": "qwerty"
 }
+
+###
+
+POST http://localhost:5000/api/auth/login HTTP/1/1
+Content-Type: application/json
+
+{
+  "email": "vas.pup@gmail.com",
+  "password": "qwerty"
+}
+
+###
+
+POST http://localhost:5000/api/auth/logout HTTP/1/1
+Content-Type: application/json
+
+###
+
+GET http://localhost:5000/api/auth/refresh HTTP/1/1
+Content-Type: application/json
+
