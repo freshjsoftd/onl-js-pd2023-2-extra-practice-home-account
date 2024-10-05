@@ -13,7 +13,7 @@ class AuthControllers {
         maxAge: 60 * 24 * 60 * 60 * 1000,
         httpOnly: true,
       })
-      res.status(200).json(authData)
+      res.status(201).json(authData)
 		} catch (error) {
 			console.log('Registration error is: ', error.message);
 			next(error);
