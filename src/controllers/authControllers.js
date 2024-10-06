@@ -9,10 +9,10 @@ class AuthControllers {
 				email,
 				password
 			);
-			res.cookie('refreshToken', authData.refreshToken, {
-				maxAge: 60 * 24 * 60 * 60 * 1000,
-				httpOnly: true,
-			});
+			// res.cookie('refreshToken', authData.refreshToken, {
+			// 	maxAge: 60 * 24 * 60 * 60 * 1000,
+			// 	httpOnly: true,
+			// });
 			res.status(201).json(authData);
 		} catch (error) {
 			console.log('Registration error is: ', error.message);

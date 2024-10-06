@@ -10,21 +10,19 @@ class AuthService {
 		if (person) throw AuthError.badRequest('This user already exists');
 		const user = await User.create({ fullName, email, password });
 		console.log('New user is: -----------------', user);
-		const tokens = TokenService.generateTokens({ email });
+		// const tokens = TokenService.generateTokens({ email });
 
-		const userId = user._id;
-		// const uId = await User.findOne({email}, {_id: 1})
-		// console.log('Id from user', userId)
-		// console.log('Id from mongo', uId)
+		// const userId = user._id;
 
-		await TokenService.saveToken(userId, tokens.refreshToken);
+		// await TokenService.saveToken(userId, tokens.refreshToken);
 
 		return {
-			...tokens,
-			user: {
-				id: userId,
-				email,
-			},
+			// ...tokens,
+			// user: {
+			// 	id: userId,
+			// 	email,
+			// },
+			...user
 		};
 	}
 
