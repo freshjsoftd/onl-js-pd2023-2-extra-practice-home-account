@@ -5,7 +5,8 @@ const {
 	login,
 	logout,
 	refresh,
-	getUsers
+	getUsers,
+	deleteUser
 } = require('../controllers/authControllers');
 const {authHandler} = require('../middlewares/auth.mw')
 
@@ -16,5 +17,6 @@ authRouter.post('/login', login)
 authRouter.post('/logout', logout)
 authRouter.get('/refresh', refresh)
 authRouter.get('/users', authHandler, getUsers)
+authRouter.delete('/del', authHandler, deleteUser)
 
 module.exports = authRouter;

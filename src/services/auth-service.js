@@ -89,6 +89,16 @@ class AuthService {
 		const users = await User.find();
 		return users;
 	}
+
+	async deleteUser(email){
+		const user = await User.findOne({email})
+		if(user.roleId === '66fed1d8aa23f4e848162293'){
+			const delUser = await User.deleteOne({email})
+		return delUser;
+		}
+		return null;
+		// return 'Not enough rights';
+	}
 }
 
 module.exports = new AuthService();
